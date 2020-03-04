@@ -1,0 +1,25 @@
+---
+
+- name: workplace directory
+  shell: mkdir /etc/docker/DockerTomcat/
+
+
+- name: workplace directory
+  shell: cd /etc/docker/DockerTomcat/
+
+- name: copy tomcat docekr image
+  copy:
+    src: Dockerfile
+    dest: /etc/docker/DockerTomcat/
+    owner: root
+    group: root
+  become: true
+  become_user: root
+
+
+- name: build image
+  shell: docker built -t tomcat9
+
+
+- name: run image
+  shell: docker run tomcat9

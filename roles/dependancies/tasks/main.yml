@@ -1,0 +1,29 @@
+---
+
+- name: install  git
+  yum: name=git state=present
+
+- name: install  iptables
+  yum: name=iptables state=present
+  tags: tables
+
+- name: install  ps
+  yum: name=procps state=present
+  tags: ps
+
+- name: install  git
+  yum: name=yum-utils state=present
+  tags: pre
+
+- name: install  git
+  yum: name=device-mapper-persistent-data state=present
+  tags: pre
+
+- name: install  git
+  yum: name=lvm2 state=present 
+  tags: pre
+
+- name: Disable selinux
+  selinux: state=disabled
+  become: true
+  tags: selinux

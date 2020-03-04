@@ -1,0 +1,10 @@
+[Unit]
+Description=docker
+
+[Service]
+
+ExecStart=/usr/bin/dockerd
+PIDFile=/var/run/dockerd
+
+TimeoutStartSec=600
+TimeoutStopSec=600
