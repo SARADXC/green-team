@@ -1,0 +1,23 @@
+---
+
+- name: install-dependancies
+  hosts: azure 
+  remote_user: root
+  become: true
+  become_user: root
+  roles:
+    - dependancies
+
+
+- name: docker-download
+  hosts: backend
+  vars_files:
+    - releases/docker-install.yml
+  remote_user: root
+  become: true
+  become_user: root
+  roles:
+    - docker-install
+  tags:
+    - docker
+
